@@ -65,6 +65,43 @@ class _SplashScreenState extends State<SplashScreen>
           ),
           // Image
           const Center(
+            child: ElevatedButton(
+              onPressed: null,
+              style: ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(
+                Color.fromARGB(255, 255, 140, 0),
+              )),
+              child: Text(
+                'Log in with Google',
+                style: TextStyle(
+                  fontFamily: 'Carettere',
+                  fontSize: 30,
+                  color: Color.fromARGB(
+                      255, 249, 219, 187), // Change text color if needed
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+          )
+              .animate()
+              .fadeIn(
+                delay: const Duration(milliseconds: 2000),
+                duration: const Duration(milliseconds: 2500),
+              )
+              .moveY(
+                  begin: 0,
+                  end: 150,
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.easeInOutSine)
+              .scaleXY(
+                alignment: Alignment.center,
+                begin: 0.0,
+                end: 1.0,
+                delay: const Duration(milliseconds: 2500),
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeInOutSine,
+              ),
+          const Center(
             child: Image(
               image: AssetImage('assets/logo.png'),
             ),
@@ -89,29 +126,6 @@ class _SplashScreenState extends State<SplashScreen>
                   delay: const Duration(milliseconds: 1200),
                   duration: const Duration(milliseconds: 500),
                   curve: Curves.easeInOutSine),
-
-          const Center(
-                  child: Text('Moodscope',
-                      style: TextStyle(
-                        fontFamily: 'Montserrat',
-                        fontSize: 30,
-                        color: Color.fromARGB(255, 246, 160, 22),
-                        fontWeight: FontWeight.w700,
-                      )))
-              .animate()
-              .moveY(
-                  begin: 0,
-                  end: 150,
-                  duration: const Duration(milliseconds: 500),
-                  curve: Curves.easeInOutSine)
-              .scaleXY(
-                alignment: Alignment.center,
-                begin: 0.0,
-                end: 1.0,
-                delay: const Duration(milliseconds: 3000),
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.easeInOutSine,
-              ),
         ],
       ),
     );
