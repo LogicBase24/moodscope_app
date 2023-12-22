@@ -48,10 +48,10 @@ class _SplashScreenState extends State<SplashScreen>
                 radius: 3,
                 // radius of the gradient
                 colors: [
-                  Color.fromARGB(255, 36, 62, 97), // start color
-                  Color.fromARGB(255, 16, 16, 16), // end color
+                  Color.fromARGB(255, 129, 67, 128), // start color
+                  Color.fromARGB(255, 29, 17, 1), // end color
                 ],
-                stops: [0.0, 0.4],
+                stops: [0.0, 0.3],
                 // Adjust the stops values
               ),
             ),
@@ -64,36 +64,45 @@ class _SplashScreenState extends State<SplashScreen>
             ),
           ),
           // Image
-          const Center(
+          Center(
+                  child: Container(
+            margin: const EdgeInsets.only(top: 400),
             child: ElevatedButton(
-              onPressed: null,
-              style: ButtonStyle(
+              onPressed: () {
+                print("pressed");
+              },
+              style: const ButtonStyle(
+                  shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(20)))),
+                  padding: MaterialStatePropertyAll(EdgeInsets.only(
+                      left: 100, right: 100, top: 10, bottom: 10)),
                   backgroundColor: MaterialStatePropertyAll(
-                Color.fromARGB(255, 255, 140, 0),
-              )),
-              child: Text(
-                'Log in with Google',
-                style: TextStyle(
-                  fontFamily: 'Carettere',
-                  fontSize: 30,
-                  color: Color.fromARGB(
-                      255, 249, 219, 187), // Change text color if needed
-                  fontWeight: FontWeight.w700,
-                ),
+                    Color.fromARGB(226, 254, 144, 10),
+                  )),
+              child: Row(
+                mainAxisSize: MainAxisSize
+                    .min, // set the size of the Row to be as small as possible
+                children: [
+                  Image.asset('assets/google.png',
+                      height: 24,
+                      width: 24), // replace with the path to your Google icon
+                  const SizedBox(
+                      width:
+                          10), // add some space between the icon and the text
+                  const Text(
+                    'Log in with Google',
+                    style: TextStyle(
+                      fontFamily: 'Calibri',
+                      fontSize: 18,
+                      color: Color.fromARGB(255, 255, 255, 255),
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
               ),
             ),
-          )
-              .animate()
-              .fadeIn(
-                delay: const Duration(milliseconds: 2000),
-                duration: const Duration(milliseconds: 2500),
-              )
-              .moveY(
-                  begin: 0,
-                  end: 150,
-                  duration: const Duration(milliseconds: 500),
-                  curve: Curves.easeInOutSine)
-              .scaleXY(
+          )).animate().scaleXY(
                 alignment: Alignment.center,
                 begin: 0.0,
                 end: 1.0,
@@ -122,7 +131,7 @@ class _SplashScreenState extends State<SplashScreen>
               )
               .moveY(
                   begin: 0,
-                  end: -150,
+                  end: -100,
                   delay: const Duration(milliseconds: 1200),
                   duration: const Duration(milliseconds: 500),
                   curve: Curves.easeInOutSine),
